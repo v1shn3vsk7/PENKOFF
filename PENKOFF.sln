@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.32417.34
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PENKOFF", "PENKOFF\PENKOFF.csproj", "{C6488103-0A98-4379-A85B-B2164C21769A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storage", "Storage\Storage.csproj", "{551F775A-D818-40FA-B21C-7F5C47FA288F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C6488103-0A98-4379-A85B-B2164C21769A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C6488103-0A98-4379-A85B-B2164C21769A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C6488103-0A98-4379-A85B-B2164C21769A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C6488103-0A98-4379-A85B-B2164C21769A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{551F775A-D818-40FA-B21C-7F5C47FA288F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{551F775A-D818-40FA-B21C-7F5C47FA288F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{551F775A-D818-40FA-B21C-7F5C47FA288F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{551F775A-D818-40FA-B21C-7F5C47FA288F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5AC808AB-0CE1-4324-BBFE-2D3E2A3B9EC0}
+	EndGlobalSection
+EndGlobal
