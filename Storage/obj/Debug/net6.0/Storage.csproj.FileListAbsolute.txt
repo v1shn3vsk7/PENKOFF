@@ -1,0 +1,14 @@
+C:\PENKOFF\PENKOFF\Storage\bin\Debug\net6.0\Storage.deps.json
+C:\PENKOFF\PENKOFF\Storage\bin\Debug\net6.0\Storage.runtimeconfig.json
+C:\PENKOFF\PENKOFF\Storage\bin\Debug\net6.0\Storage.dll
+C:\PENKOFF\PENKOFF\Storage\bin\Debug\net6.0\ref\Storage.dll
+C:\PENKOFF\PENKOFF\Storage\bin\Debug\net6.0\Storage.pdb
+C:\PENKOFF\PENKOFF\Storage\obj\Debug\net6.0\Storage.csproj.AssemblyReference.cache
+C:\PENKOFF\PENKOFF\Storage\obj\Debug\net6.0\Storage.GeneratedMSBuildEditorConfig.editorconfig
+C:\PENKOFF\PENKOFF\Storage\obj\Debug\net6.0\Storage.AssemblyInfoInputs.cache
+C:\PENKOFF\PENKOFF\Storage\obj\Debug\net6.0\Storage.AssemblyInfo.cs
+C:\PENKOFF\PENKOFF\Storage\obj\Debug\net6.0\Storage.csproj.CoreCompileInputs.cache
+C:\PENKOFF\PENKOFF\Storage\obj\Debug\net6.0\Storage.dll
+C:\PENKOFF\PENKOFF\Storage\obj\Debug\net6.0\ref\Storage.dll
+C:\PENKOFF\PENKOFF\Storage\obj\Debug\net6.0\Storage.pdb
+C:\PENKOFF\PENKOFF\Storage\obj\Debug\net6.0\Storage.genruntimeconfig.cache
