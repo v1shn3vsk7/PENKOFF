@@ -10,5 +10,9 @@ public class BankContext : DbContext
     }
 
     public DbSet<User> Users { get; set; }
+
+    public DbSet<CurrencyAccounts> CurrencyAccounts { get; set; }
+
+    public DbSet<Card> Cards { get; set; }
 }
 
