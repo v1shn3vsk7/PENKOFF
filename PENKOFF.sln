@@ -5,7 +5,9 @@ VisualStudioVersion = 17.0.32417.34
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "PENKOFF", "PENKOFF\PENKOFF.csproj", "{C6488103-0A98-4379-A85B-B2164C21769A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Storage", "Storage\Storage.csproj", "{551F775A-D818-40FA-B21C-7F5C47FA288F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Storage", "Storage\Storage.csproj", "{551F775A-D818-40FA-B21C-7F5C47FA288F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Logic", "Logic\Logic.csproj", "{9AF509D5-28A5-4FDA-AB4F-8A879EBE5A20}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{551F775A-D818-40FA-B21C-7F5C47FA288F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{551F775A-D818-40FA-B21C-7F5C47FA288F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{551F775A-D818-40FA-B21C-7F5C47FA288F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9AF509D5-28A5-4FDA-AB4F-8A879EBE5A20}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9AF509D5-28A5-4FDA-AB4F-8A879EBE5A20}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9AF509D5-28A5-4FDA-AB4F-8A879EBE5A20}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9AF509D5-28A5-4FDA-AB4F-8A879EBE5A20}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
