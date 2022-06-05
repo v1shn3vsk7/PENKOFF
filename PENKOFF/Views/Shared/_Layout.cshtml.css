@@ -1,48 +1,59 @@
-﻿/* Please see documentation at https://docs.microsoft.com/aspnet/core/client-side/bundling-and-minification
-for details on configuring this project to bundle and minify static web assets. */
-
-a.navbar-brand {
-  white-space: normal;
-  text-align: center;
-  word-break: break-all;
+﻿body {
+    margin: 0;
+    font-family: 'SF Pro Display';
+    font-size: 14px;
+    line-height: 1.6;
+    background-color: #FBFBFB;
+    color: #176FFA
 }
 
-a {
-  color: #0077cc;
+.container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
-.btn-primary {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.intro {
+    width: 100%;
+    height: 100vh;
+    background-color: #FBFBFB;
 }
 
-.nav-pills .nav-link.active, .nav-pills .show > .nav-link {
-  color: #fff;
-  background-color: #1b6ec2;
-  border-color: #1861ac;
+.header {
+    width: 100%;
+    position: absolute;
+    top: 10px;
+    right: 0;
+    left: 0;
+    z-index: 1000;
 }
 
-.border-top {
-  border-top: 1px solid #e5e5e5;
-}
-.border-bottom {
-  border-bottom: 1px solid #e5e5e5;
-}
-
-.box-shadow {
-  box-shadow: 0 .25rem .75rem rgba(0, 0, 0, .05);
+.header_inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
-button.accept-policy {
-  font-size: 1rem;
-  line-height: inherit;
+.header_logo {
+    font-family: 'Pragmatica';
+    font-size: 34px;
+    font-weight: 800;
 }
 
-.footer {
-  position: absolute;
-  bottom: 0;
-  width: 100%;
-  white-space: nowrap;
-  line-height: 60px;
+.nav {
+    font-size: 30px;
 }
+
+.nav_link {
+    display: inline-block;
+    vertical-align: top;
+    margin: 0 50px;
+    color: #5C5757;
+    text-decoration: none;
+    font-size: 22px;
+    transition: color .2s linear;
+}
+
+    .nav_link:hover {
+        color: #16FAEA;
+    }
