@@ -5,7 +5,7 @@ var builder = WebApplication.CreateBuilder(args);
 var services = builder.Services;
 
 // Add services to the container.
-services.AddControllersWithViews().AddRazorRuntimeCompilation(); //check!
+services.AddControllersWithViews();
 
 // Add Database context
 var connectionString = builder.Configuration.GetConnectionString("DbConnection");
