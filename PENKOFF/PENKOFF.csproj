@@ -24,4 +24,46 @@
     </Content>
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\images" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <_ContentIncludedByDefault Remove="wwwroot\assets\bootstrap\css\bootstrap.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\bootstrap\js\bootstrap.min.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\Banner-Heading-Image.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\Lato.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\Montserrat.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\css\vanilla-zoom.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\Simple-Line-Icons.eot" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\simple-line-icons.min.css" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\Simple-Line-Icons.svg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\Simple-Line-Icons.ttf" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\Simple-Line-Icons.woff" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\Simple-Line-Icons.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\s\lato\v23\S6uyw4BMUTPHjx4wXg.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\s\lato\v23\S6uyw4BMUTPHjxAwXjeu.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\s\montserrat\v24\JTUQjIg1_i6t8kCHKm459WxRxC7mw9c.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\s\montserrat\v24\JTUQjIg1_i6t8kCHKm459WxRxi7mw9c.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\s\montserrat\v24\JTUQjIg1_i6t8kCHKm459WxRxy7mw9c.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\s\montserrat\v24\JTUQjIg1_i6t8kCHKm459WxRyS7m.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\s\montserrat\v24\JTUQjIg1_i6t8kCHKm459WxRzS7mw9c.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\s\montserrat\v24\JTUSjIg1_i6t8kCHKm459W1hyzbi.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\s\montserrat\v24\JTUSjIg1_i6t8kCHKm459Wdhyzbi.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\s\montserrat\v24\JTUSjIg1_i6t8kCHKm459Wlhyw.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\s\montserrat\v24\JTUSjIg1_i6t8kCHKm459WRhyzbi.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\fonts\s\montserrat\v24\JTUSjIg1_i6t8kCHKm459WZhyzbi.woff2" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\img\avatars\avatar1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\img\avatars\avatar2.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\img\avatars\avatar3.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\img\scenery\image1.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\img\scenery\image4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\img\scenery\image5.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\img\scenery\image6.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\img\tech\image4.jpg" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\js\theme.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\js\vanilla-zoom.js" />
+    <_ContentIncludedByDefault Remove="wwwroot\assets\img\moscow2.jpg" />
+  </ItemGroup>
+
 </Project>

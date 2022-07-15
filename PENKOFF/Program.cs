@@ -9,7 +9,7 @@ services.AddControllersWithViews();
 
 // Add Database context
 var connectionString = builder.Configuration.GetConnectionString("DbConnection");
-services.AddDbContext<BankContext>(param => param.UseSqlServer(connectionString));
+services.AddDbContext<BankContext>(param => param.UseSqlServer(connectionString)); 
 
 
 var app = builder.Build();

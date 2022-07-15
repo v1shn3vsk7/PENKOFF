@@ -1,41 +1,45 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <title>@ViewData["Title"] - PENKOFF</title>
-    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
-    <link rel="stylesheet" href="~/PENKOFF.styles.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true"/>
 </head>
 
-<header class="header">
+<body>
+<div class="wrapper">
+    <header class="header">
         <div class="container">
             <div class="header_inner">
                 <a class="header_logo" style="text-decoration:none; color: #176FFA" asp-action="Index" asp-controller="Home">PENKOFF</a>
                 <nav>
-                    @*<a class="nav_link" asp-action="Services" asp-controller="Services">Services</a>
+                    <a class="nav_link" asp-action="Services" asp-controller="Services">Services</a>
                     <a class="nav_link" asp-action="MyCards" asp-controller="MyCards">My cards</a>
-                    <a class="nav_link" asp-action="Stocks" asp-controller="Home" >Stocks</a>
-                    <a class="nav_link" asp-action="Account" asp-controller="Login">My account</a>*@
+                    <a class="nav_link" asp-action="Stocks" asp-controller="Stocks">Stocks</a>
+                    <a class="nav_link" asp-action="Account" asp-controller="Account">My account</a>
                 </nav>
-                
+    
             </div>
         </div>
     </header>
-
-<body>
     
-    <div class="container">
+    <div class="Container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
-
+    
     
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>
     @await RenderSectionAsync("Scripts", required: false)
+</div>
+
+<footer>
+    
+</footer>
 </body>
 </html>

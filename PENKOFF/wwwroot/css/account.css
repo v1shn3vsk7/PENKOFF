@@ -1,0 +1,14 @@
+﻿body {
+    margin: 0;
+    font-family: 'SF Pro Display';
+    font-size: 14px;
+    line-height: 1.6;
+    background-color: #FBFBFB;
+    color: #176FFA
+}
+
+*,
+*:before,
+*:after {
+    box-sizing: border-box;
+}
