@@ -14,6 +14,26 @@
 
 #main-content {
     width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
+    height: 60%;
+    background: #F7F7F7;
+    position: fixed;
+    top: 15%;
+    left: 0;
+}
+
+#content-inner-main {
+    width: 100%;
+    padding-top: 5%;
+    position: relative;
+}
+
+#content-inner-main h3 {
+    margin: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+    color: black;
+    font-size: 250%;
 }
