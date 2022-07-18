@@ -23,7 +23,7 @@
 
 #content-inner-main {
     width: 100%;
-    padding-top: 5%;
+    padding-top: 3%;    
     position: relative;
 }
 
@@ -35,5 +35,32 @@
     margin-right: -50%;
     transform: translate(-50%, -50%);
     color: black;
-    font-size: 250%;
+    font-size: 300%;
+}
+
+#inner-advantage-1 {
+    
+}
+#inner-advantage-1 h1{
+    margin: 0;
+    position: absolute;
+    top: 150%;
+    left: 50%;
+    margin-right: -50%;
+    transform: translate(-50%, -50%);
+}
+
+/*P.block-text {
+    margin-left: auto;
+    margin-right: auto;
+    width: 8em;
+    position: relative;
+}*/
+
+#inner-advantage-2 {
+    
+}
+
+#inner-advantage-3 {
+    
 }
