@@ -1,14 +1,52 @@
-﻿body {
-    margin: 0;
-    font-family: 'SF Pro Display';
-    font-size: 14px;
-    line-height: 1.6;
-    background-color: #FBFBFB;
-    color: #176FFA
+﻿/*
+@import url('https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;700&display=swap');
+*/
+/*ROOT VARIABLES*/
+:root {
+    --color-primary: #176FFA;
+    --color-danger: #e3101b;
+    --color-success: #6FFA19;
+    --color-warning: #FAA419;
+    --color-white: #fff;
+    --color-info-dark: #7d8da1;
+    --color-info-light: #dce1eb;
+    --color-dark: #5C5757;
+    --color-light: rgba(132, 139, 200, 0.18);
+    --color-primary-variant: #111e88;
+    --color-dark-variant: #677483;
+    --color-background: #FBFBFB;
+    
+    --card-border-radius: 2rem;
+    --border-radius-1: 0.4rem;
+    --border-radius-2: 0.8rem;
+    --border-radius-3: 1.2rem;
+    
+    --card-padding: 1.8rem;
+    --padding-1: 1.2rem;
+    
+    --box-shadow: 0 2rem 3rem var(--color-light);
 }
 
-*,
-*:before,
-*:after {
+* {
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    appearance: none;
+    border: 0;
+    text-decoration: none;
+    list-style: none;
     box-sizing: border-box;
+}
+
+html {
+    font-size: 14px;
+    
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    font-family: 'M PLUS Rounded 1c', sans-serif;
+    font-size: 0.88rem;
+    background: var(--color-background);
 }

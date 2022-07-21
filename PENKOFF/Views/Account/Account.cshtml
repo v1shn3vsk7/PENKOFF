@@ -1,10 +1,59 @@
-﻿<head>
+﻿@{
+    Layout = null;
+}
+<head>
     <meta charset="UTF-8">
     <title>Account</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    
+    @*Material Icons link*@
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+          rel="stylesheet">
+    
+    @*Font Link*@
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;700&display=swap" rel="stylesheet">
+    
     <link rel="stylesheet" href="css/account.css">
 </head>
-
 <body>
-    
+<div class="container">
+    <aside>
+        <div class="top">
+            <div class="logo">
+                <a class="header_logo" style="text-decoration:none; color: #176FFA; font-family: 'Pragmatica'" asp-action="Index" asp-controller="Home">PENKOFF</a>
+            </div>
+            <div class="close" id="close-btn">
+                <span class="material-icons-round">close</span>
+            </div>
+        </div>
+        <div class="sidebar">
+            <a style="text-decoration:none;" asp-action="" asp-controller="">
+                <span class="material-icons-round">account_balance</span>
+                <h3>Profile</h3>
+            </a>
+            <a style="text-decoration:none;" asp-action="" asp-controller="">
+                <span class="material-icons-round">credit_card</span>
+                <h3>My cards</h3>
+            </a>
+            <a style="text-decoration:none;" asp-action="" asp-controller="">
+                <span class="material-icons-round">attach_money</span>
+                <h3>Cashback and bonuses</h3>
+            </a>
+            <a style="text-decoration:none;" asp-action="" asp-controller="">
+                <span class="material-icons-round">message</span>
+                <h3>Chat with support</h3>
+            </a>
+            <a style="text-decoration:none;" asp-action="" asp-controller="">
+                <span class="material-icons-round">settings</span>
+                <h3>Settings</h3>
+            </a>
+            <a style="text-decoration:none;" asp-action="" asp-controller="">
+                <span class="material-icons-round">logout</span>
+                <h3>Logout</h3>
+            </a>
+        </div>
+    </aside>
+</div>
 </body>
