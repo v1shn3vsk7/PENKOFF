@@ -27,7 +27,7 @@
             </div>
         </div>
         <div class="sidebar">
-            <a asp-action="" asp-controller="">
+            <a class="active" asp-action="" asp-controller="">
                 <span class="material-icons-round">account_balance</span>
                 <h3>Profile</h3>
             </a>
@@ -53,6 +53,48 @@
             </a>
         </div>
     </aside>
+    <main>
+        <div class="insights">
+            @*Transactions*@
+            <div class="transactions">
+                <span class="material-icons-round">toll</span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Transactions</h3>
+                        <h1>526$</h1>
+                    </div>
+                    <div class="progress">
+                        <svg>
+                            <circle cx="38" cy="38" r="36"></circle>
+                        </svg>
+                        <div class="number">
+                            <p>81%</p>
+                        </div>
+                    </div>
+                </div>
+                <small class="text-muted">Last 1 month</small>
+            </div>
+            @*End of transactions*@
+            <div class="incoming transfers">
+                <span class="material-icons-round">south</span>
+                <div class="middle">
+                    <div class="left">
+                        <h3>Incoming transfers</h3>
+                        <h1>1453$</h1>
+                    </div>
+                    <div class="progress">
+                        <svg>
+                            <circle cx="38" cy="38" r="36"></circle>
+                        </svg>
+                        <div class="number">
+                            <p>81%</p>
+                        </div>
+                    </div>
+                </div>
+                <small class="text-muted">Last 1 month</small>
+            </div>
+        </div>
+    </main>
 </div>
 </body>
 </html>
