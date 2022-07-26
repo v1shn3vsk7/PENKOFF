@@ -263,6 +263,131 @@ main .insights svg circle {
     stroke-width: 14;
     stroke-linecap: round;
     transform: translate(5px, 5px);
+    /*stroke-dasharray: 110;
+    stroke-dashoffset: 92;*/
+}
+
+main .insights .transactions svg circle {
+    stroke-dashoffset: -30;
+    stroke-dasharray: 200;
+}
+
+main .insights .incoming-transfers svg circle {
+    stroke-dashoffset: 20;
+    stroke-dasharray: 80;
+}
+
+main .insights .test svg circle {
+    stroke-dashoffset: 35;
     stroke-dasharray: 110;
-    stroke-dashoffset: 92;
+}
+
+main .insights .progress .number {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+main .insights small {
+    margin-top: 1.3rem;
+    display: block;
+}
+
+main .recent-operations {
+    margin-top: 2rem;
+}
+
+main .recent-operations h2 {
+    margin-bottom: 0.8rem;
+}
+
+main .recent-operations table {
+    background: var(--color-white);
+    width: 100%;
+    border-radius: var(--card-border-radius);
+    padding: var(--card-padding);
+    text-align: center;
+    box-shadow: var(--box-shadow);
+    transition: all 300ms ease;
+}
+
+main .recent-operations table:hover {
+    box-shadow: none;
+}
+
+main table tbody td {
+    height: 2.8rem;
+    border-bottom: 1px solid var(--color-light);
+    color: var(--color-dark-variant);
+}
+
+main table tbody tr:last-child td {
+    border: none;
+}
+
+main .recent-operations a {
+    text-align: center;
+    display: block;
+    margin: 1rem auto;
+    color: var(--color-primary);
+}
+
+/*RIGHT*/
+.right {
+    margin-top: 1.4rem;
+}
+
+.right .top {
+    display: flex;
+    justify-content: end;
+    gap: 2rem;
+}
+
+.right .top button {
+    display: none;
+}
+
+.right .theme-toggler {
+    background: var(--color-light);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 1.6rem;
+    width: 4.2rem;
+    cursor: pointer;
+    border-radius: var(--border-radius-1);
+}
+
+.right .theme-toggler span {
+    font-size: 1.2rem;
+    width: 50%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.right .theme-toggler span.active {
+    background: var(--color-primary);
+    color: white;
+    border-radius: var(--border-radius-1);
+}
+
+.right .top .profile {
+    display: flex;
+    gap: 2rem;
+    text-align: right;
+}
+
+.right .recent-updates {
+    margin-top: 1rem;
+}
+
+.right .recent-updates h2 {
+    margin-bottom: 0.8rem;
 }

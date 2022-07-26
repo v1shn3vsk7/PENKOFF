@@ -54,6 +54,7 @@
         </div>
     </aside>
     <main>
+        @*INSIGHTS*@
         <div class="insights">
             @*Transactions*@
             <div class="transactions">
@@ -89,7 +90,7 @@
                             <circle cx="38" cy="38" r="36"></circle>
                         </svg>
                         <div class="number">
-                            <p>81%</p>
+                            <p>62%</p>
                         </div>
                     </div>
                 </div>
@@ -98,7 +99,7 @@
             @*End of incoming transfers*@
 
             @*just a prototype*@
-            <div class="incoming transfers">
+            <div class="test">
                 <span class="material-icons-round">south</span>
                 <div class="middle">
                     <div class="left">
@@ -110,7 +111,7 @@
                             <circle cx="38" cy="38" r="36"></circle>
                         </svg>
                         <div class="number">
-                            <p>81%</p>
+                            <p>44%</p>
                         </div>
                     </div>
                 </div>
@@ -118,7 +119,110 @@
             </div>
             @*End of prototype*@
         </div>
+        @*END OF INSIGHTS*@
+        
+        <div class="recent-operations">
+            <h2>Recent operations</h2>
+            <table>
+                <thead>
+                <tr>
+                    <th>Operation type</th>
+                    <th>Amount</th>
+                    <th>Hz</th>
+                    <th>Status</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Test 1</td>
+                    <td>1</td>
+                    <td>Due</td>
+                    <td class="warning">Pending</td>
+                    <td class="primary">Details</td>
+                </tr>
+                <tr>
+                    <td>Test 2</td>
+                    <td>2</td>
+                    <td>Due</td>
+                    <td class="warning">Pending</td>
+                    <td class="primary">Details</td>
+                </tr>
+                <tr>
+                    <td>Test 3</td>
+                    <td>3</td>
+                    <td>Due</td>
+                    <td class="warning">Pending</td>
+                    <td class="primary">Details</td>
+                </tr>
+                <tr>
+                    <td>Test 4</td>
+                    <td>4</td>
+                    <td>Due</td>
+                    <td class="warning">Pending</td>
+                    <td class="primary">Details</td>
+                </tr>
+                <tr>
+                    <td>Test 5</td>
+                    <td>5</td>
+                    <td>Due</td>
+                    <td class="warning">Pending</td>
+                    <td class="primary">Details</td>
+                </tr>
+                
+                </tbody>
+            </table>
+            <a href="#">Show all</a>
+        </div>
     </main>
+    
+    <div class="right">
+        <div class="top">
+            <button id="menu-btn">
+                <span class="material-icons-round">menu</span>
+            </button>
+            <div class="theme-toggler">
+                <span class="material-icons-round active">light_mode</span>
+                <span class="material-icons-round">brightness_3</span>
+            </div>
+            <div class="profile">
+                <div class="info">
+                    <p>Hey, <b>Vladimir</b></p>
+                    <small class="text-muted">Admin</small>
+                </div>
+                <div class="profile-photo">
+                    <img src=""> @*add user photo here*@
+                </div>
+            </div>
+        </div>
+        @*END OF TOP*@
+        <div class="recent-updates">
+            <h2>Recent updates</h2>
+            <div class="updates">
+                <div class="update">
+                    <img src=""> @*add user photo here*@
+                </div>
+                <div class="message">
+                    <p><b>Example name1</b> sent 300$ to you</p>
+                    <small class="text-muted">2 minutes ago</small>
+                </div>
+                <div class="update">
+                    <img src=""> @*add user photo here*@
+                </div>
+                <div class="message">
+                    <p><b>Example name2</b> sent 300$ to you</p>
+                    <small class="text-muted">2 minutes ago</small>
+                </div>
+                <div class="update">
+                    <img src=""> @*add user photo here*@
+                </div>
+                <div class="message">
+                    <p><b>Example name3</b> sent 300$ to you</p>
+                    <small class="text-muted">2 minutes ago</small>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>
