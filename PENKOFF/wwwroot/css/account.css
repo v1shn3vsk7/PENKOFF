@@ -26,7 +26,7 @@
 
 .dark-theme-variables {
     --color-background: #181a1e;
-    --color-white: #202528;
+    /*--color-white: #202528;*/--color-white: #C1C1C1;
     --color-dark: #edeffd;
     --color-dark-variant: #a3bdcc;
     --color-light: rgba(0, 0, 0, 0.4);
