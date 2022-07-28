@@ -1,4 +1,6 @@
-﻿@{
+﻿@model PENKOFF.Models.LoginViewModel;
+
+@{
     Layout = null;
 }
 
@@ -9,10 +11,27 @@
     <title>Login</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
     <link rel="stylesheet" href="/css/login.css">
+    @*Font links*@
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
 <div class="center">
-    
+    <h1>Login</h1>
+    <form asp-action="Login" asp-controller="Account">
+        <div class="txt-field">
+            <input required type="text" placeholder="Login:" asp-for="user.Login"/>
+        </div>
+        <div class="txt-field">
+            <input required type="password" placeholder="Password:" asp-for="user.Password"/>
+        </div>
+        <div class="recover-password">Forgot Password?</div>
+        <input type="submit" value="Login">
+        <div class="signup-link">
+            Don`t have an account?<a href="#">Sign up</a>
+        </div>
+    </form>
 </div>
 </body>
 </html>

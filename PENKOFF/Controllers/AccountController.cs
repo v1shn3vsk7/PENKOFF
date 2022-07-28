@@ -14,4 +14,9 @@ public class AccountController : Controller
         
         return View();
     }
+
+    public async Task<IActionResult> Login()
+    {
+        return View();
+    }
 }

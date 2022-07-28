@@ -7,6 +7,14 @@ var services = builder.Services;
 // Add services to the container.
 services.AddControllersWithViews();
 
+/*Enable sessions*/
+builder.Services.AddSession(options =>
+{
+    options.IdleTimeout = TimeSpan.FromMinutes(30);
+    options.Cookie.HttpOnly = true;
+    options.Cookie.IsEssential = true;
+});
+
 // Add Database context
 var connectionString = builder.Configuration.GetConnectionString("DbConnection");
 services.AddDbContext<BankContext>(param => param.UseSqlServer(connectionString)); 
@@ -28,6 +36,8 @@ app.UseStaticFiles();
 app.UseRouting();
 
 app.UseAuthorization();
+
+app.UseSession();
 
 app.MapControllerRoute(
     name: "default",
