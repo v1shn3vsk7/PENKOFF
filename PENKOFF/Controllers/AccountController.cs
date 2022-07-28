@@ -1,9 +1,16 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Logic.PENKOFF;
+using Microsoft.AspNetCore.Mvc;
+using PENKOFF.Models;
 
 namespace PENKOFF.Controllers;
 
 public class AccountController : Controller
 {
+    private readonly IUserManager _manager;
+    public AccountController(IUserManager manager)
+    {
+        _manager = manager;
+    }
     // GET
     public async Task<IActionResult> Account()
     {
@@ -15,8 +22,9 @@ public class AccountController : Controller
         return View();
     }
 
-    public async Task<IActionResult> Login()
+    public async Task<IActionResult> Login(LoginViewModel model)
     {
+         
         return View();
     }
 }
