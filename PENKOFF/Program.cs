@@ -1,3 +1,5 @@
+using Logic.PENKOFF;
+using Logic.Users;
 using Microsoft.EntityFrameworkCore;
 using Storage;
 
@@ -6,6 +8,9 @@ var services = builder.Services;
 
 // Add services to the container.
 services.AddControllersWithViews();
+
+//
+services.AddScoped<IUserManager, UserManager>();
 
 /*Enable sessions*/
 builder.Services.AddSession(options =>

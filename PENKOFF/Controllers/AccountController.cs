@@ -24,7 +24,17 @@ public class AccountController : Controller
 
     public async Task<IActionResult> Login(LoginViewModel model)
     {
-         
-        return View();
+        var user = await _manager.FindUser(model.user.Login, model.user.Password);
+
+        if (user is null)
+        {
+            return View("Login", new LoginViewModel
+            {
+                result = "Incorrect login and/or password"
+            });
+        }
+
+        HttpContext.Session.SetInt32("Id", user.Id);
+        return View("Account");
     }
 }
