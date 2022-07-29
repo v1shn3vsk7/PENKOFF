@@ -8,6 +8,15 @@ body {
     overflow: hidden;
 }
 
+.logo {
+    position: absolute;
+    top: 10%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2rem;
+    margin-bottom: 2rem;
+}
+
 .center {
     position: absolute;
     top: 50%;
@@ -16,12 +25,13 @@ body {
     width: 400px;
     background: #FFFFFF;
     border-radius: 20px;
-    border:1px solid #C2C2C2;
+    box-shadow: 0 2rem 3rem rgba(132, 139, 200, 0.18);
+    /*border:1px solid #C2C2C2;*/
 }
 
 .center h1 {
     text-align: center;
-    padding: 0 0 20px 0;
+    padding: 0 0 5px 0;
 }
 
 .center form {
@@ -39,10 +49,14 @@ form .txt-field {
     height: 40px;
     background: transparent;
     outline: none;
-    color: #3F3F3F;
-    border: 1px solid rgba(0, 0, 0, 0.4);
+    color: black;
+    border: 1px solid rgba(132, 139, 200, 0.18);;
     box-sizing: border-box;
     border-radius: 12px;
+}
+
+.txt-field input::placeholder {
+    color: #C2C2C2;
 }
 
 .recover-password {

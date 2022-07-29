@@ -37,4 +37,9 @@ public class AccountController : Controller
         HttpContext.Session.SetInt32("Id", user.Id);
         return View("Account");
     }
+
+    public async Task<IActionResult> SignUp()
+    {
+        return View();
+    }
 }
