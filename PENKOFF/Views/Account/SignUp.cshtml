@@ -17,6 +17,9 @@
     <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
+<div class="logo">
+    <a style="text-decoration:none; color: #176FFA; font-family: 'Pragmatica',serif" asp-action="Index" asp-controller="Home">PENKOFF</a>
+</div>
 <div class="center">
     <h1>Sign up</h1>
     <form asp-action="SignUp" asp-controller="Account">
@@ -35,6 +38,7 @@
         <div class="txt-field">
             <input required type="password" placeholder="Repeat password:" asp-for="repeatPassword"/>
         </div>
+        <input type="submit" value="Sign up">
     </form>
 </div>
 </body>
