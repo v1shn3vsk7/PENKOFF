@@ -18,4 +18,17 @@ public class UserManager : IUserManager
 
     public async Task<User?> FindUser(string Login, string Password) =>
         await _context.Users.FirstOrDefaultAsync(user => user.Login == Login && user.Password == Password);
+
+    public async Task<User?> FindUser(string Login) =>
+        await _context.Users.FirstOrDefaultAsync(user => user.Login == Login);
+    
+    public async Task AddUser(User user)
+    {
+        await _context.Users.AddAsync(user);
+        await _context.SaveChangesAsync();
+    }
+
+    public int GetUserId(string Login) =>
+        _context.Users.FirstOrDefaultAsync(user => user.Login == Login).Id;
+    
 }
