@@ -45,7 +45,10 @@ public class AccountController : Controller
 
     public IActionResult SignUp()
     {
-        return View();
+        return View("SignUp", new SignUpVewModel
+        {
+            result = ""
+        });
     }
 
     public async Task<IActionResult> Registration(SignUpVewModel model)
