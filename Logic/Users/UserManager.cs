@@ -30,5 +30,13 @@ public class UserManager : IUserManager
 
     public int GetUserId(string Login) =>
         _context.Users.FirstOrDefaultAsync(user => user.Login == Login).Id;
+
+    public async Task AddEmailToUser(int Id, string Email)
+    {
+        var user = await _context.Users.FindAsync("Id");
+
+        user.Mail = Email;
+        await _context.SaveChangesAsync();
+    }
     
 }

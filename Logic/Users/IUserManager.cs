@@ -13,4 +13,6 @@ public interface IUserManager
     Task AddUser(User user);
 
     int GetUserId(string Login);
+
+    Task AddEmailToUser(int Id, string Email);
 }

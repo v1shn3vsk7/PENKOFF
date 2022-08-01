@@ -21,19 +21,28 @@
     <h3>@Model.result</h3>
 </div>
 <div class="center">
-    <h1>Last step:</h1>
-    <form asp-action="MailVerification" asp-controller="Account">
-        <div class="txt-field">
-            <input required type="text" placeholder="Email:" asp-for="mail"/>
-        </div>
-        <input type="submit" value="Send code">
-    </form>
-    <form asp-action="CheckCode" asp-controller="Account">
-        <div class="txt-field-1">
-            <input required type="text" placeholder="Email:" asp-for="mail"/>
-        </div>
-        <input type="submit" value="Submit">
-    </form>
+    @if (@Model.isCodeSent is false)
+    {
+        <h1>Last step:</h1>
+        <form asp-action="MailVerification" asp-controller="Account">
+            <div class="txt-field">
+                <input required type="text" placeholder="Email:" asp-for="mail"/>
+            </div>
+            <input type="submit" value="Send code">
+        </form> 
+    } 
+    
+    @if (@Model.isCodeSent is true)
+    {
+        <h1>Last step:</h1>
+        <form asp-action="CheckCode" asp-controller="Account">
+            <div class="txt-field">
+                <input required type="number" placeholder="Verification code:" asp-for="inputForVerificationCode"/>
+            </div>
+            <input type="submit" value="Submit">
+        </form>
+    }
 </div>
+<script src="/js/mail-verification.js"></script>
 </body>
 </html>

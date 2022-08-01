@@ -9,4 +9,6 @@ public class MailVerificationViewModel
     public string result { get; set; } = "";
 
     public bool isCodeSent { get; set; } = false;
+    
+    public int inputForVerificationCode { get; set; }
 }

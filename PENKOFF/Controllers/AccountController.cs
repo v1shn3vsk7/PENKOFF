@@ -77,13 +77,35 @@ public class AccountController : Controller
         return View("MailVerification", new MailVerificationViewModel());
     }
 
-    public async Task<IActionResult> MailVerification()
+    public IActionResult MailVerification(MailVerificationViewModel model)
     {
-        return View();
+        Random rn = new();
+        var verificationCode = rn.Next(100000, 999999);
+        HttpContext.Session.SetInt32("verificationCode", verificationCode);
+        
+        Verification.SendEmail(model.mail, verificationCode);
+        HttpContext.Session.SetString("mail", model.mail);
+        
+        return View("MailVerification", new MailVerificationViewModel
+        {
+            result = "",
+            isCodeSent = true,
+            mail = model.mail
+        });
     }
 
-    public async Task<IActionResult> CheckCode()
+    public async Task<IActionResult> CheckCode(MailVerificationViewModel model)
     {
-        return View("Login");
+        if (model.inputForVerificationCode != HttpContext.Session.GetInt32("verificationCode"))
+        {
+            return View("MailVerification", new MailVerificationViewModel
+            {
+                result = "Wrong code. Try again"
+            });
+        }
+
+        await _manager.AddEmailToUser((int)HttpContext.Session.GetInt32("Id"), model.mail);
+
+        return RedirectToAction("Account");
     }
 }
