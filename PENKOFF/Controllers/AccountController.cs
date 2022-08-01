@@ -53,7 +53,7 @@ public class AccountController : Controller
 
     public async Task<IActionResult> Registration(SignUpVewModel model)
     {
-        if (model.user.Password != model.repeatPassword)
+        if (model.user.Password != model.ConfirmPassword)
         {
             return View("SignUp", new SignUpVewModel
             {
@@ -74,6 +74,16 @@ public class AccountController : Controller
         await _manager.AddUser(model.user);
         HttpContext.Session.SetInt32("Id", _manager.GetUserId(model.user.Login));
 
-        return View("Account");
+        return View("MailVerification", new MailVerificationViewModel());
+    }
+
+    public async Task<IActionResult> MailVerification()
+    {
+        return View();
+    }
+
+    public async Task<IActionResult> CheckCode()
+    {
+        return View("Login");
     }
 }
