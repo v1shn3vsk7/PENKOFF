@@ -36,10 +36,10 @@
             <input required type="text" placeholder="Login:" asp-for="user.Login"/>
         </div>
         <div class="txt-field">
-            <input required type="password" placeholder="Password:" asp-for="user.Password"/>
+            <input required type="password" placeholder="Password:" asp-for="user.Password" minlength="8"/>
         </div>
         <div class="txt-field">
-            <input required type="password" placeholder="Confirm password:" asp-for="ConfirmPassword"/>
+            <input required type="password" placeholder="Confirm password:" asp-for="ConfirmPassword" minlength="8"/>
         </div>
         <input type="submit" value="Sign up">
     </form>

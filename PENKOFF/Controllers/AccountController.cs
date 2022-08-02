@@ -84,7 +84,7 @@ public class AccountController : Controller
         HttpContext.Session.SetInt32("verificationCode", verificationCode);
         
         Verification.SendEmail(model.mail, verificationCode);
-        HttpContext.Session.SetString("mail", model.mail);
+        HttpContext.Session.SetString("Email", model.mail);
         
         return View("MailVerification", new MailVerificationViewModel
         {
@@ -104,7 +104,10 @@ public class AccountController : Controller
             });
         }
 
-        await _manager.AddEmailToUser((int)HttpContext.Session.GetInt32("Id"), model.mail);
+        await _manager.AddEmailToUser((int)HttpContext.Session.GetInt32("Id"), (string)HttpContext.Session.GetString("Email"));
+        
+        HttpContext.Session.Remove("verificationCode");
+        HttpContext.Session.Remove("Email");
 
         return RedirectToAction("Account");
     }

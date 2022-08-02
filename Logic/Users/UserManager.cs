@@ -14,13 +14,13 @@ public class UserManager : IUserManager
         _context = context;
     }
 
-    public async Task<User> FindUser(int Id) => await _context.Users.FindAsync(Id);
+    public async Task<User?> FindUser(int id) => await _context.Users.FindAsync(id);
 
-    public async Task<User?> FindUser(string Login, string Password) =>
-        await _context.Users.FirstOrDefaultAsync(user => user.Login == Login && user.Password == Password);
+    public async Task<User?> FindUser(string login, string password) =>
+        await _context.Users.FirstOrDefaultAsync(user => user.Login == login && user.Password == password);
 
-    public async Task<User?> FindUser(string Login) =>
-        await _context.Users.FirstOrDefaultAsync(user => user.Login == Login);
+    public async Task<User?> FindUser(string login) =>
+        await _context.Users.FirstOrDefaultAsync(user => user.Login == login);
     
     public async Task AddUser(User user)
     {
@@ -28,14 +28,14 @@ public class UserManager : IUserManager
         await _context.SaveChangesAsync();
     }
 
-    public int GetUserId(string Login) =>
-        _context.Users.FirstOrDefaultAsync(user => user.Login == Login).Id;
+    public int GetUserId(string login) =>
+        _context.Users.FirstOrDefault(user => user.Login == login).Id;
 
-    public async Task AddEmailToUser(int Id, string Email)
+    public async Task AddEmailToUser(int id, string email)
     {
-        var user = await _context.Users.FindAsync("Id");
+        var user = await _context.Users.FindAsync(id);
 
-        user.Mail = Email;
+        user.Mail = email;
         await _context.SaveChangesAsync();
     }
     

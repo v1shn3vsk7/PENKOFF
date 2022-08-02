@@ -37,7 +37,7 @@
         <h1>Last step:</h1>
         <form asp-action="CheckCode" asp-controller="Account">
             <div class="txt-field">
-                <input required type="number" placeholder="Verification code:" asp-for="inputForVerificationCode"/>
+                <input required type="number" placeholder="Verification code:" asp-for="inputForVerificationCode" min="0" max="999999"/>
             </div>
             <input type="submit" value="Submit">
         </form>

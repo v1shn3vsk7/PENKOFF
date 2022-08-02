@@ -15,10 +15,10 @@ public static class Verification
             message.Subject = "Verification";
             message.Body = "Your verification code is: " + verificationCode;
 
-            using SmtpClient client = new("smtp.yandex.com");
+            using SmtpClient client = new("smtp-relay.sendinblue.com");
             client.UseDefaultCredentials = false;
-            client.Credentials = new NetworkCredential("penkoff.verification@yandex.com", "Passw0rdForVerification");
-            client.Port = 25;
+            client.Credentials = new NetworkCredential("penkoff.verification@yandex.com", "xD7UWFhVTc1brGSj");
+            client.Port = 587;
             client.EnableSsl = true;
 
             client.Send(message);
