@@ -38,5 +38,11 @@ public class UserManager : IUserManager
         user.Mail = email;
         await _context.SaveChangesAsync();
     }
+
+    public async Task Create(User entity)
+    {
+        await _context.AddAsync(entity);
+        await _context.SaveChangesAsync();
+    }
     
 }

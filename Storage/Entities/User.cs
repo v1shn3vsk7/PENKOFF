@@ -1,9 +1,13 @@
-﻿namespace Storage.Entities;
+﻿using Storage.Enums;
+
+namespace Storage.Entities;
 
 public class User
 {
     [Key]
     public int Id { get; set; }
+    
+    public Role Role { get; set; }
 
     public string Login { get; set; }
 

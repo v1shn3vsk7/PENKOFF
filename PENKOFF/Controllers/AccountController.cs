@@ -1,6 +1,8 @@
 ﻿using Logic.PENKOFF;
 using Microsoft.AspNetCore.Mvc;
 using PENKOFF.Models;
+using Storage.Entities;
+using Storage.Enums;
 
 namespace PENKOFF.Controllers;
 
@@ -71,7 +73,18 @@ public class AccountController : Controller
             });
         }
 
-        await _manager.AddUser(model.user);
+        user = new User() /////////////////////////////////////////////////////////
+        {
+            FirstName = model.user.FirstName,
+            LastName = model.user.LastName,
+            Login = model.user.Login,
+            Password = model.user.Password,
+            Role = Role.User
+        };
+
+        await _manager.Create(user);
+
+        await _manager.AddUser(model.user); /////////////////////////////////////
         HttpContext.Session.SetInt32("Id", _manager.GetUserId(model.user.Login));
 
         return View("MailVerification", new MailVerificationViewModel());
