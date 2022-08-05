@@ -4,6 +4,7 @@ namespace Logic.PENKOFF;
 
 public interface IUserManager
 {
+    public IQueryable<User> GetAll();
     Task<User?> FindUser(int Id);
 
     Task<User?> FindUser(string Login, string Password);

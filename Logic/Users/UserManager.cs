@@ -14,6 +14,8 @@ public class UserManager : IUserManager
         _context = context;
     }
 
+    public IQueryable<User> GetAll() => _context.Users;
+
     public async Task<User?> FindUser(int id) => await _context.Users.FindAsync(id);
 
     public async Task<User?> FindUser(string login, string password) =>

@@ -1,4 +1,5 @@
-﻿using Logic.PENKOFF;
+﻿using System.Data.Entity;
+using Logic.PENKOFF;
 using Microsoft.AspNetCore.Mvc;
 using PENKOFF.Models;
 using Storage.Entities;
@@ -31,7 +32,7 @@ public class AccountController : Controller
 
     public async Task<IActionResult> Login(LoginViewModel model)
     {
-        var user = await _manager.FindUser(model.user.Login, model.user.Password);
+        var user = await _manager.GetAll().FirstOrDefaultAsync(User => User.Login == model.user.Login);
 
         if (user is null)
         {
@@ -41,6 +42,14 @@ public class AccountController : Controller
             });
         }
 
+        if (user.Password != Security.HashPassword(model.user.Password))
+        {
+            return View("Login", new LoginViewModel
+            {
+                result = "Incorrect login or password"
+            });
+        }
+        
         HttpContext.Session.SetInt32("Id", user.Id);
         return View("Account");
     }
@@ -73,19 +82,19 @@ public class AccountController : Controller
             });
         }
 
-        user = new User() /////////////////////////////////////////////////////////
+        user = new User() 
         {
             FirstName = model.user.FirstName,
             LastName = model.user.LastName,
             Login = model.user.Login,
-            Password = model.user.Password,
+            Password = Security.HashPassword(model.user.Password),
             Role = Role.User
         };
 
         await _manager.Create(user);
 
-        await _manager.AddUser(model.user); /////////////////////////////////////
         HttpContext.Session.SetInt32("Id", _manager.GetUserId(model.user.Login));
+        HttpContext.Session.SetInt32("Id", user.Id); ///////////////////////////////////////
 
         return View("MailVerification", new MailVerificationViewModel());
     }
