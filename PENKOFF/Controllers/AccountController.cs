@@ -1,6 +1,9 @@
 ﻿using System.Data.Entity;
 using Logic.PENKOFF;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
+using System.Security.Claims;
 using PENKOFF.Models;
 using Storage.Entities;
 using Storage.Enums;
@@ -49,8 +52,8 @@ public class AccountController : Controller
                 result = "Incorrect login or password"
             });
         }
-        
-        HttpContext.Session.SetInt32("Id", user.Id);
+
+        //HttpContext.Session.SetInt32("Id", user.Id);
         return View("Account");
     }
 
