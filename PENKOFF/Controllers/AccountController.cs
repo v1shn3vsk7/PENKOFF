@@ -1,9 +1,11 @@
 ﻿using System.Data.Entity;
+using System.IdentityModel.Tokens.Jwt;
 using Logic.PENKOFF;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
+using Microsoft.IdentityModel.Tokens;
 using PENKOFF.Models;
 using Storage.Entities;
 using Storage.Enums;
@@ -33,9 +35,23 @@ public class AccountController : Controller
         return View();
     }
 
+    public AuthenticateResponse Authenticate(LoginViewModel model)
+    {
+        var user = _manager.GetAll().FirstOrDefault(User => User.Login == model.user.Login && User.Password == Security.HashPassword(model.user.Password));
+        
+        if (user == null)
+        {
+            return null;
+        }
+
+        var token = UserHelper.GenerateJwtToken(user);
+        
+        return new AuthenticateResponse(user, token);
+    }
+
     public async Task<IActionResult> Login(LoginViewModel model)
     {
-        var user = await _manager.GetAll().FirstOrDefaultAsync(User => User.Login == model.user.Login);
+        /*var user = await _manager.GetAll().FirstOrDefaultAsync(User => User.Login == model.user.Login);
 
         if (user is null)
         {
@@ -54,7 +70,14 @@ public class AccountController : Controller
         }
 
         //HttpContext.Session.SetInt32("Id", user.Id);
-        return View("Account");
+        return View("Account");*/
+
+        var response = Authenticate(model);
+        
+        if (response == null)
+            return BadRequest(new { message = "Username or password is incorrect" });
+        
+        return Ok(response);
     }
 
     public IActionResult SignUp()
@@ -85,7 +108,7 @@ public class AccountController : Controller
             });
         }
 
-        user = new User() 
+        user = new User()
         {
             FirstName = model.user.FirstName,
             LastName = model.user.LastName,
@@ -107,10 +130,10 @@ public class AccountController : Controller
         Random rn = new();
         var verificationCode = rn.Next(100000, 999999);
         HttpContext.Session.SetInt32("verificationCode", verificationCode);
-        
+
         Verification.SendEmail(model.mail, verificationCode);
         HttpContext.Session.SetString("Email", model.mail);
-        
+
         return View("MailVerification", new MailVerificationViewModel
         {
             result = "",
@@ -129,8 +152,9 @@ public class AccountController : Controller
             });
         }
 
-        await _manager.AddEmailToUser((int)HttpContext.Session.GetInt32("Id"), (string)HttpContext.Session.GetString("Email"));
-        
+        await _manager.AddEmailToUser((int) HttpContext.Session.GetInt32("Id"),
+            (string) HttpContext.Session.GetString("Email"));
+
         HttpContext.Session.Remove("verificationCode");
         HttpContext.Session.Remove("Email");
 

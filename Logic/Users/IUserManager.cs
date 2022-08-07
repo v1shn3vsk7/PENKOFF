@@ -18,4 +18,6 @@ public interface IUserManager
     Task AddEmailToUser(int Id, string Email);
 
     Task Create(User entity);
+
+
 }
