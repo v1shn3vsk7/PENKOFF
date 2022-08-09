@@ -22,20 +22,11 @@ public class AccountController : Controller
     }
 
     // GET
-    public async Task<IActionResult> Account()
-    {
-        if (HttpContext.Session.GetInt32("Id") == null)
-        {
-            return View("~/Views/Account/Login.cshtml", new LoginViewModel
-            {
-                result = ""
-            });
-        }
+    public async Task<IActionResult> Account() => HttpContext.Session.GetInt32("Id") == null ?
+        View("~/Views/Account/Login.cshtml", new LoginViewModel()) : View();
+    
 
-        return View();
-    }
-
-    public AuthenticateResponse Authenticate(LoginViewModel model)
+    /*public AuthenticateResponse Authenticate(LoginViewModel model)
     {
         var user = _manager.GetAll().FirstOrDefault(User => User.Login == model.user.Login && User.Password == Security.HashPassword(model.user.Password));
         
@@ -45,37 +36,21 @@ public class AccountController : Controller
         }
         
         return new AuthenticateResponse(user, token);
-    }
+    }*/
 
+    [HttpPost]
     public async Task<IActionResult> Login(LoginViewModel model)
     {
-        /*var user = await _manager.GetAll().FirstOrDefaultAsync(User => User.Login == model.user.Login);
-
-        if (user is null)
+        UserService us = new UserService(_manager);
+        var response = await us.Login(model);
+        if (response.StatusCode == Enums.StatusCode.OK)
         {
-            return View("Login", new LoginViewModel
-            {
-                result = "Incorrect login or password"
-            });
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(response.Data));
+            return RedirectToAction("Account");
         }
-
-        if (user.Password != Security.HashPassword(model.user.Password))
-        {
-            return View("Login", new LoginViewModel
-            {
-                result = "Incorrect login or password"
-            });
-        }
-
-        //HttpContext.Session.SetInt32("Id", user.Id);
-        return View("Account");*/
-
-        var response = Authenticate(model);
-        
-        if (response == null)
-            return BadRequest(new { message = "Username or password is incorrect" });
-        
-        return Ok(response);
+        ModelState.AddModelError("", response.Description);
+        return View(model);
     }
 
     [HttpGet]

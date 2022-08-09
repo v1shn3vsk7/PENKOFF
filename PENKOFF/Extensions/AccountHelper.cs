@@ -54,6 +54,37 @@ public class UserService
         }
     }
 
+    public async Task<BaseResponse<ClaimsIdentity>> Login(LoginViewModel model)
+    {
+        try
+        {
+            var user = await _manager.FindUser(model.user.Login,
+                Security.HashPassword(model.user.Password));
+            if (user == null)
+            {
+                return new BaseResponse<ClaimsIdentity>()
+                {
+                    Description = "User is not found"
+                };
+            }
+            var result = Authenticate(user);
+            
+            return new BaseResponse<ClaimsIdentity>()
+            {
+                Data = result,
+                StatusCode = StatusCode.OK
+            };
+        }
+        catch (Exception ex)
+        {
+            return new BaseResponse<ClaimsIdentity>()
+            {
+                Description = ex.Message,
+                StatusCode = StatusCode.InternalServerError
+            };
+        }
+    }
+
     private ClaimsIdentity Authenticate(User user)
     {
         var claims = new List<Claim>

@@ -25,7 +25,7 @@
 </div>
 <div class="center">
     <h1>Login</h1>
-    <form asp-action="Login" asp-controller="Account">
+    <form asp-action="Login" method="post" asp-controller="Account">
         <div class="txt-field">
             <input required type="text" placeholder="Login:" asp-for="user.Login"/>
         </div>
