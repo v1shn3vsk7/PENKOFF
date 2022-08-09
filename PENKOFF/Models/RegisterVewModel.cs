@@ -1,4 +1,5 @@
-﻿using Storage.Entities;
+﻿using System.ComponentModel.DataAnnotations;
+using Storage.Entities;
 
 namespace PENKOFF.Models;
 

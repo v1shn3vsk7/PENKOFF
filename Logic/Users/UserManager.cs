@@ -1,4 +1,5 @@
-﻿using Logic.PENKOFF;
+﻿using System.Security.Claims;
+using Logic.PENKOFF;
 using Microsoft.EntityFrameworkCore;
 using Storage;
 using Storage.Entities;
@@ -46,7 +47,5 @@ public class UserManager : IUserManager
         await _context.AddAsync(entity);
         await _context.SaveChangesAsync();
     }
-    
-    
-    
+
 }

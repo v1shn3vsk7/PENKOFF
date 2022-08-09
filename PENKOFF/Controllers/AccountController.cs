@@ -43,8 +43,6 @@ public class AccountController : Controller
         {
             return null;
         }
-
-        var token = UserHelper.GenerateJwtToken(user);
         
         return new AuthenticateResponse(user, token);
     }
@@ -81,10 +79,7 @@ public class AccountController : Controller
     }
 
     [HttpGet]
-    public IActionResult Register()
-    {
-        return View("Register", new RegisterVewModel());
-    }
+    public IActionResult Register() => View("Register", new RegisterVewModel());
 
     [HttpPost]
     public async Task<IActionResult> Register(RegisterVewModel model)
@@ -97,31 +92,20 @@ public class AccountController : Controller
             });
         }
 
-        var user = await _manager.FindUser(model.user.Login);
-
-        if (user is not null)
+        UserService us = new UserService(_manager);
+        var response = await us.Register(model);
+        if (response.StatusCode == Enums.StatusCode.OK)
         {
-            return View("Register", new RegisterVewModel
-            {
-                result = "Login already exists"
-            });
+            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+                new ClaimsPrincipal(response.Data));
+
+            return View("MailVerification", new MailVerificationViewModel());
         }
 
-        user = new User()
+        return View("Register", new RegisterVewModel()
         {
-            FirstName = model.user.FirstName,
-            LastName = model.user.LastName,
-            Login = model.user.Login,
-            Password = Security.HashPassword(model.user.Password),
-            Role = Role.User
-        };
-
-        await _manager.Create(user);
-
-        HttpContext.Session.SetInt32("Id", _manager.GetUserId(model.user.Login));
-        HttpContext.Session.SetInt32("Id", user.Id); ///////////////////////////////////////
-
-        return View("MailVerification", new MailVerificationViewModel());
+            result = "Something went wrong"
+        });
     }
 
     public IActionResult MailVerification(MailVerificationViewModel model)

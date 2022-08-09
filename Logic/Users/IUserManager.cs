@@ -1,4 +1,5 @@
-﻿using Storage.Entities;
+﻿using System.Security.Claims;
+using Storage.Entities;
 
 namespace Logic.PENKOFF;
 
@@ -18,6 +19,5 @@ public interface IUserManager
     Task AddEmailToUser(int Id, string Email);
 
     Task Create(User entity);
-
 
 }

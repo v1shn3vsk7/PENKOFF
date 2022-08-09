@@ -18,21 +18,10 @@ services.AddControllersWithViews();
 //
 services.AddScoped<IUserManager, UserManager>();
 
+services.AddAuthentication("CookieAuthenticationDefaults.AuthenticationScheme")
+    .AddCookie(options => options.LoginPath = "/login");
 services.AddAuthorization();
-services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-    .AddJwtBearer(options =>
-    {
-        options.TokenValidationParameters = new TokenValidationParameters
-        {
-            ValidateIssuer = true,
-            ValidIssuer = AuthOptions.ISSUER,
-            ValidateAudience = true,
-            ValidAudience = AuthOptions.AUDIENCE,
-            ValidateLifetime = true,
-            IssuerSigningKey = AuthOptions.GetSymmetricSecurityKey(),
-            ValidateIssuerSigningKey = true,
-        };
-    });
+
 
 /*Enable sessions*/
 builder.Services.AddSession(options =>
@@ -48,6 +37,9 @@ services.AddDbContext<BankContext>(param => param.UseSqlServer(connectionString)
 
 var app = builder.Build();
 
+app.UseAuthentication();  
+app.UseAuthorization();   
+
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
 {
@@ -61,24 +53,6 @@ app.UseStaticFiles();
 
 app.UseRouting();
 
-app.UseAuthentication();
-app.UseAuthorization();
-
-app.Map("Login/{username}", (string username) =>
-{
-    var claims = new List<Claim> {new Claim(ClaimTypes.Name, username) };
-    var jwt = new JwtSecurityToken(
-        issuer: AuthOptions.ISSUER,
-        audience: AuthOptions.AUDIENCE,
-        claims: claims,
-        expires: DateTime.UtcNow.Add(TimeSpan.FromMinutes(2)),
-        signingCredentials: new SigningCredentials(AuthOptions.GetSymmetricSecurityKey(), SecurityAlgorithms.HmacSha256));
-            
-    return new JwtSecurityTokenHandler().WriteToken(jwt);
-});
-
-app.Map("/data", [Authorize] ()=> new { message= "Hello World!" });
-
 app.UseSession();
 
 app.MapControllerRoute(
@@ -86,12 +60,3 @@ app.MapControllerRoute(
     pattern: "{controller=Home}/{action=Index}/{id?}");
 
 app.Run();
-
-public class AuthOptions
-{
-    public const string ISSUER = "AuthServer"; // token publisher
-    public const string AUDIENCE = "AuthClient"; // token consumer
-    const string KEY = "mysupersecret_secretkey!123";   // encryption key
-    public static SymmetricSecurityKey GetSymmetricSecurityKey() => 
-        new SymmetricSecurityKey(Encoding.UTF8.GetBytes(KEY));
-}
