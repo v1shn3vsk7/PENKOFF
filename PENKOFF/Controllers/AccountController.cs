@@ -1,11 +1,9 @@
 ﻿using System.Data.Entity;
-using System.IdentityModel.Tokens.Jwt;
 using Logic.PENKOFF;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using System.Security.Claims;
-using Microsoft.IdentityModel.Tokens;
 using PENKOFF.Models;
 using Storage.Entities;
 using Storage.Enums;
@@ -22,22 +20,9 @@ public class AccountController : Controller
     }
 
     // GET
-    public async Task<IActionResult> Account() => HttpContext.Session.GetInt32("Id") == null ?
-        View("~/Views/Account/Login.cshtml", new LoginViewModel()) : View();
+    public async Task<IActionResult> Account() => User.Identity.IsAuthenticated ?
+        View() : View("~/Views/Account/Login.cshtml", new LoginViewModel());
     
-
-    /*public AuthenticateResponse Authenticate(LoginViewModel model)
-    {
-        var user = _manager.GetAll().FirstOrDefault(User => User.Login == model.user.Login && User.Password == Security.HashPassword(model.user.Password));
-        
-        if (user == null)
-        {
-            return null;
-        }
-        
-        return new AuthenticateResponse(user, token);
-    }*/
-
     [HttpPost]
     public async Task<IActionResult> Login(LoginViewModel model)
     {
@@ -67,20 +52,19 @@ public class AccountController : Controller
             });
         }
 
-        UserService us = new UserService(_manager);
+        var us = new UserService(_manager);
         var response = await us.Register(model);
-        if (response.StatusCode == Enums.StatusCode.OK)
-        {
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(response.Data));
+        if (response.StatusCode != Enums.StatusCode.OK)
+            return View("Register", new RegisterVewModel()
+            {
+                result = "Something went wrong"
+            });
+        
+        await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
+            new ClaimsPrincipal(response.Data));
 
-            return View("MailVerification", new MailVerificationViewModel());
-        }
+        return View("MailVerification", new MailVerificationViewModel());
 
-        return View("Register", new RegisterVewModel()
-        {
-            result = "Something went wrong"
-        });
     }
 
     public IActionResult MailVerification(MailVerificationViewModel model)
