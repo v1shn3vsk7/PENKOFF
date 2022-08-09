@@ -2,7 +2,7 @@
 
 namespace PENKOFF.Models;
 
-public class SignUpVewModel
+public class RegisterVewModel
 {
     public User user { get; set; }
     

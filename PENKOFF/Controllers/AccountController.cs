@@ -80,19 +80,18 @@ public class AccountController : Controller
         return Ok(response);
     }
 
-    public IActionResult SignUp()
+    [HttpGet]
+    public IActionResult Register()
     {
-        return View("SignUp", new SignUpVewModel
-        {
-            result = ""
-        });
+        return View("Register", new RegisterVewModel());
     }
 
-    public async Task<IActionResult> Registration(SignUpVewModel model)
+    [HttpPost]
+    public async Task<IActionResult> Register(RegisterVewModel model)
     {
         if (model.user.Password != model.ConfirmPassword)
         {
-            return View("SignUp", new SignUpVewModel
+            return View("Register", new RegisterVewModel
             {
                 result = "Passwords does not match"
             });
@@ -102,7 +101,7 @@ public class AccountController : Controller
 
         if (user is not null)
         {
-            return View("SignUp", new SignUpVewModel
+            return View("Register", new RegisterVewModel
             {
                 result = "Login already exists"
             });
