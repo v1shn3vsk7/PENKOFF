@@ -85,7 +85,7 @@ public class UserService
         }
     }
 
-    private ClaimsIdentity Authenticate(User user)
+    private static ClaimsIdentity Authenticate(User user)
     {
         var claims = new List<Claim>
         {
