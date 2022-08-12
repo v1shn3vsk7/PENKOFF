@@ -34,13 +34,13 @@ public class UserManager : IUserManager
     public int GetUserId(string login) =>
         _context.Users.FirstOrDefault(user => user.Login == login).Id;
 
-    public async Task AddEmailToUser(int id, string email)
+    /*public async Task AddEmailToUser(int id, string email)
     {
         var user = await _context.Users.FindAsync(id);
 
         user.Mail = email;
         await _context.SaveChangesAsync();
-    }
+    }*/
 
     public async Task Create(User entity)
     {

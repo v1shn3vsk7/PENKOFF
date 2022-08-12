@@ -9,7 +9,6 @@ public class AuthenticateResponse
     public string LastName { get; set; }
     public string Login { get; set; }
     public string Password { get; set; }
-    public string Email { get; set; }
     public string Token { get; set; }
 
     public AuthenticateResponse(User user, string token)
@@ -19,7 +18,6 @@ public class AuthenticateResponse
         LastName = user.LastName;
         Login = user.Login;
         Password = user.Password;
-        Email = user.Mail;
         Token = token;
     }
 }

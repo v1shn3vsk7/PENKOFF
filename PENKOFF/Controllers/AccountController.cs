@@ -63,11 +63,11 @@ public class AccountController : Controller
         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
             new ClaimsPrincipal(response.Data));
 
-        return View("MailVerification", new MailVerificationViewModel());
+        return View("Login", new LoginViewModel());
 
     }
 
-    public IActionResult MailVerification(MailVerificationViewModel model)
+    /*public IActionResult MailVerification(MailVerificationViewModel model)
     {
         Random rn = new();
         var verificationCode = rn.Next(100000, 999999);
@@ -101,5 +101,5 @@ public class AccountController : Controller
         HttpContext.Session.Remove("Email");
 
         return RedirectToAction("Account");
-    }
+    }*/
 }
