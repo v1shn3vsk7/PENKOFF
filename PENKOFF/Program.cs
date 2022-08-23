@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Authorization;
 using Storage;
 
@@ -18,8 +19,8 @@ services.AddControllersWithViews();
 //
 services.AddScoped<IUserManager, UserManager>();
 
-services.AddAuthentication("CookieAuthenticationDefaults.AuthenticationScheme")
-    .AddCookie(options => options.LoginPath = "/login");
+services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
+    .AddCookie(options => options.LoginPath = "/Authentication/Login");
 services.AddAuthorization();
 
 
@@ -37,8 +38,7 @@ services.AddDbContext<BankContext>(param => param.UseSqlServer(connectionString)
 
 var app = builder.Build();
 
-app.UseAuthentication();  
-app.UseAuthorization();   
+   
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
@@ -52,6 +52,9 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 app.UseRouting();
+
+app.UseAuthentication();  
+app.UseAuthorization();
 
 app.UseSession();
 
