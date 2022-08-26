@@ -22,16 +22,6 @@ public class AuthenticationController : Controller
     [HttpPost]
     public async Task<IActionResult> Login(LoginViewModel model)
     {
-        /*UserService us = new UserService(_manager);
-        var response = await us.Login(model);
-        if (response.StatusCode == Enums.StatusCode.OK)
-        {
-            await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
-                new ClaimsPrincipal(response.Data));
-            return RedirectToAction("Account");
-        }
-        ModelState.AddModelError("", response.Description);
-        return View(model);*/
         var user = _manager.FindUser(model.user.Login, Security.HashPassword(model.user.Password));
         if (user == null)
         {
@@ -50,7 +40,6 @@ public class AuthenticationController : Controller
 
         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
             new ClaimsPrincipal(claimsIdentity));
-        /*return RedirectToAction("Account", "Account");*/
         return RedirectToAction("Account", "Account");
     }
 
@@ -82,11 +71,9 @@ public class AuthenticationController : Controller
         return View("Login", new LoginViewModel());
 
     }
-    
-    [HttpPost]
     public async Task<IActionResult> Logout()
     {
         await HttpContext.SignOutAsync();
-        return RedirectToAction("Index", "Home");
+        return View("/Views/Home/Index.cshtml");
     }
 }

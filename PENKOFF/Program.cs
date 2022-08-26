@@ -1,13 +1,7 @@
-using System.IdentityModel.Tokens.Jwt;
-using System.Security.Claims;
 using Logic.PENKOFF;
 using Logic.Users;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
 using Microsoft.AspNetCore.Authentication.Cookies;
-using Microsoft.AspNetCore.Authorization;
 using Storage;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -55,9 +49,9 @@ app.UseRouting();
 
 app.UseAuthentication();  
 app.UseAuthorization();
-
-app.UseSession();
-
+                       
+app.UseSession();      
+                       
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
