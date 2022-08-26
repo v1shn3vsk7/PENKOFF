@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using PENKOFF.Models;
+using Storage.Entities;
 
 namespace PENKOFF.Controllers;
 
@@ -22,7 +23,7 @@ public class AuthenticationController : Controller
     [HttpPost]
     public async Task<IActionResult> Login(LoginViewModel model)
     {
-        var user = _manager.FindUser(model.user.Login, Security.HashPassword(model.user.Password));
+        User user = await _manager.FindUser(model.user.Login, Security.HashPassword(model.user.Password));
         if (user == null)
         {
             return View(new LoginViewModel()
