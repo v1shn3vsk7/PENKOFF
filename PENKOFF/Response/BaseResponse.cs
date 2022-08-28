@@ -1,4 +1,5 @@
 ﻿using PENKOFF.Enums;
+using Storage.Entities;
 
 namespace PENKOFF.Response;
 
@@ -8,12 +9,14 @@ public class BaseResponse<T> : IBaseResponse<T>
 
     public StatusCode StatusCode { get; set; }
         
-    public T Data { get; set; }     
+    public T Data { get; set; }
 }
 
 public interface IBaseResponse<T>
 {
     string Description { get; }
+    
     StatusCode StatusCode { get; }
+    
     T Data { get; }
 } 

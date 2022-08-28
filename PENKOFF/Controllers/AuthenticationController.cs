@@ -5,6 +5,7 @@ using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using PENKOFF.Models;
 using Storage.Entities;
+using Storage.Enums;
 
 namespace PENKOFF.Controllers;
 
@@ -23,7 +24,7 @@ public class AuthenticationController : Controller
     [HttpPost]
     public async Task<IActionResult> Login(LoginViewModel model)
     {
-        User user = await _manager.FindUser(model.user.Login, Security.HashPassword(model.user.Password));
+        var user = await _manager.FindUser(model.user.Login, Security.HashPassword(model.user.Password));
         if (user == null)
         {
             return View(new LoginViewModel()
@@ -41,7 +42,14 @@ public class AuthenticationController : Controller
 
         await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme,
             new ClaimsPrincipal(claimsIdentity));
-        return RedirectToAction("Account", "Account");
+
+        return user.Role switch
+        {
+            Role.Admin => RedirectToAction("AdminAccount", "Account"),
+            Role.TechSupport => RedirectToAction("TechSupportAccount", "Account"),
+            Role.User => RedirectToAction("Account", "Account"),
+            _ => View(new LoginViewModel() {result = "Incorrect Login or Password"})
+        };
     }
 
     [HttpGet]

@@ -4,6 +4,7 @@ using PENKOFF.Enums;
 using PENKOFF.Models;
 using PENKOFF.Response;
 using Storage.Entities;
+using Storage.Enums;
 
 namespace PENKOFF;
 
@@ -32,7 +33,8 @@ public class UserService
                 FirstName = model.user.FirstName,
                 LastName = model.user.LastName,
                 Login = model.user.Login,
-                Password = Security.HashPassword(model.user.Password)
+                Password = Security.HashPassword(model.user.Password),
+                Role = Role.User
             };
 
             await _manager.Create(user);
@@ -54,7 +56,7 @@ public class UserService
         }
     }
 
-    public async Task<BaseResponse<ClaimsIdentity>> Login(LoginViewModel model)
+    /*public async Task<BaseResponse<ClaimsIdentity>> Login(LoginViewModel model)
     {
         try
         {
@@ -72,7 +74,7 @@ public class UserService
             return new BaseResponse<ClaimsIdentity>()
             {
                 Data = result,
-                StatusCode = StatusCode.OK
+                StatusCode = StatusCode.OK,
             };
         }
         catch (Exception ex)
@@ -83,7 +85,7 @@ public class UserService
                 StatusCode = StatusCode.InternalServerError
             };
         }
-    }
+    }*/
 
     private static ClaimsIdentity Authenticate(User user)
     {

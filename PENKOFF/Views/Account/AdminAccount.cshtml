@@ -1,0 +1,57 @@
+﻿@{
+    Layout = null;
+}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Account</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="stylesheet" type="text/css" href="/css/admin-account.css">
+    @*Material Icons link*@
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Round"
+          rel="stylesheet">
+    @*Font links*@
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=M+PLUS+Rounded+1c:wght@300;400;700&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+<aside>
+    <div class="top">
+        <div class="logo">
+            <a style="text-decoration:none; color: #176FFA; font-family: 'Pragmatica',serif" asp-action="Index" asp-controller="Home">PENKOFF</a>
+        </div>
+        <div class="close" id="close-btn">
+            <span class="material-icons-round">close</span>
+        </div>
+    </div>
+    <div class="sidebar">
+        <a class="active" asp-action="" asp-controller="">
+            <span class="material-icons-round">account_balance</span>
+            <h3>Profile</h3>
+        </a>
+        <a asp-action="" asp-controller="">
+            <span class="material-icons-round">account_circle</span>
+            <h3>Users</h3>
+        </a>
+        <a asp-action="" asp-controller="">
+            <span class="material-icons-round">attach_money</span>
+            <h3>Cashback and bonuses</h3>
+        </a>
+        <a asp-action="" asp-controller="">
+            <span class="material-icons-round">message</span>
+            <h3>Chat with support</h3>
+        </a>
+        <a asp-action="" asp-controller="">
+            <span class="material-icons-round">settings</span>
+            <h3>Settings</h3>
+        </a>
+        <a asp-action="Logout" asp-controller="Authentication">
+            <span class="material-icons-round" style="color: red;">logout</span>
+            <h3 style="color: red;">Logout</h3>
+        </a>
+    </div>
+</aside>
+</div>
+</body>

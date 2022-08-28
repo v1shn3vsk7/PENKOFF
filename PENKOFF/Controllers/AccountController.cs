@@ -10,4 +10,14 @@ public class AccountController : Controller
     {
         return View();
     }
+
+    public IActionResult AdminAccount()
+    {
+        return View();
+    }
+
+    public IActionResult TechSupportAccount()
+    {
+        return View();
+    }
 }
