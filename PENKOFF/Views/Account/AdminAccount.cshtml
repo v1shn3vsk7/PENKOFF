@@ -17,41 +17,164 @@
 </head>
 <body>
 <div class="container">
-<aside>
-    <div class="top">
-        <div class="logo">
-            <a style="text-decoration:none; color: #176FFA; font-family: 'Pragmatica',serif" asp-action="Index" asp-controller="Home">PENKOFF</a>
+    <aside>
+        <div class="top">
+            <div class="logo">
+                <a style="text-decoration:none; color: #176FFA; font-family: 'Pragmatica',serif" asp-action="Index" asp-controller="Home">PENKOFF</a>
+            </div>
+            <div class="close" id="close-btn">
+                <span class="material-icons-round">close</span>
+            </div>
         </div>
-        <div class="close" id="close-btn">
-            <span class="material-icons-round">close</span>
+        <div class="sidebar">
+            <a class="active" asp-action="" asp-controller="">
+                <span class="material-icons-round">analytics</span>
+                <h3>Analytics</h3>
+            </a>
+            <a asp-action="" asp-controller="">
+                <span class="material-icons-round">account_circle</span>
+                <h3>Users</h3>
+            </a>
+            <a asp-action="" asp-controller="">
+                <span class="material-icons-round">attach_money</span>
+                <h3>Cashback and bonuses</h3>
+            </a>
+            <a asp-action="" asp-controller="">
+                <span class="material-icons-round">message</span>
+                <h3>Chat with support</h3>
+            </a>
+            <a asp-action="" asp-controller="">
+                <span class="material-icons-round">settings</span>
+                <h3>Settings</h3>
+            </a>
+            <a asp-action="Logout" asp-controller="Authentication">
+                <span class="material-icons-round" style="color: red;">logout</span>
+                <h3 style="color: red;">Logout</h3>
+            </a>
         </div>
-    </div>
-    <div class="sidebar">
-        <a class="active" asp-action="" asp-controller="">
-            <span class="material-icons-round">account_balance</span>
-            <h3>Profile</h3>
-        </a>
-        <a asp-action="" asp-controller="">
-            <span class="material-icons-round">account_circle</span>
-            <h3>Users</h3>
-        </a>
-        <a asp-action="" asp-controller="">
-            <span class="material-icons-round">attach_money</span>
-            <h3>Cashback and bonuses</h3>
-        </a>
-        <a asp-action="" asp-controller="">
-            <span class="material-icons-round">message</span>
-            <h3>Chat with support</h3>
-        </a>
-        <a asp-action="" asp-controller="">
-            <span class="material-icons-round">settings</span>
-            <h3>Settings</h3>
-        </a>
-        <a asp-action="Logout" asp-controller="Authentication">
-            <span class="material-icons-round" style="color: red;">logout</span>
-            <h3 style="color: red;">Logout</h3>
-        </a>
-    </div>
-</aside>
+    </aside>
+    <main>
+        @*INSIGHTS*@
+            <div class="insights">
+                @*Transactions*@
+                <div class="transactions">
+                    <span class="material-icons-round">toll</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Transactions</h3>
+                            <h1>526$</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>81%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 1 month</small>
+                </div>
+                @*End of transactions*@
+        
+                @*Incoming transfers*@
+                <div class="incoming-transfers">
+                    <span class="material-icons-round">south</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Incoming transfers</h3>
+                            <h1>1453$</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>62%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 1 month</small>
+                </div>
+                @*End of incoming transfers*@
+        
+                @*just a prototype*@
+                <div class="test">
+                    <span class="material-icons-round">south</span>
+                    <div class="middle">
+                        <div class="left">
+                            <h3>Test</h3>
+                            <h1>1453$</h1>
+                        </div>
+                        <div class="progress">
+                            <svg>
+                                <circle cx="38" cy="38" r="36"></circle>
+                            </svg>
+                            <div class="number">
+                                <p>44%</p>
+                            </div>
+                        </div>
+                    </div>
+                    <small class="text-muted">Last 1 month</small>
+                </div>
+                @*End of prototype*@
+            </div>
+        @*END OF INSIGHTS*@
+        
+        <div class="recent-operations">
+                <h2>Recent operations</h2>
+                <table>
+                    <thead>
+                    <tr>
+                        <th>Operation type</th>
+                        <th>Amount</th>
+                        <th>Hz</th>
+                        <th>Status</th>
+                        <th></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <td>Test 1</td>
+                        <td>1</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="primary">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Test 2</td>
+                        <td>2</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="primary">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Test 3</td>
+                        <td>3</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="primary">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Test 4</td>
+                        <td>4</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="primary">Details</td>
+                    </tr>
+                    <tr>
+                        <td>Test 5</td>
+                        <td>5</td>
+                        <td>Due</td>
+                        <td class="warning">Pending</td>
+                        <td class="primary">Details</td>
+                    </tr>
+        
+                    </tbody>
+                </table>
+                <a href="#">Show all</a>
+            </div>
+        </main>
+        @*END OF MAIN*@
 </div>
 </body>
