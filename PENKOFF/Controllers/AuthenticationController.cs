@@ -83,6 +83,6 @@ public class AuthenticationController : Controller
     public async Task<IActionResult> Logout()
     {
         await HttpContext.SignOutAsync();
-        return View("/Views/Home/Index.cshtml");
+        return RedirectToAction("Index", "Home");
     }
 }

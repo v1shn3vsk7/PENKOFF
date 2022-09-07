@@ -17,164 +17,262 @@
 </head>
 <body>
 <div class="container">
-    <aside>
-        <div class="top">
-            <div class="logo">
-                <a style="text-decoration:none; color: #176FFA; font-family: 'Pragmatica',serif" asp-action="Index" asp-controller="Home">PENKOFF</a>
+<aside>
+    <div class="top">
+        <div class="logo">
+            <a style="text-decoration:none; color: #176FFA; font-family: 'Pragmatica',serif" asp-action="Index" asp-controller="Home">PENKOFF</a>
+        </div>
+        <div class="close" id="close-btn">
+            <span class="material-icons-round">close</span>
+        </div>
+    </div>
+    <div class="sidebar">
+        <a class="active" asp-action="" asp-controller="">
+            <span class="material-icons-round">analytics</span>
+            <h3>Analytics</h3>
+        </a>
+        <a asp-action="" asp-controller="">
+            <span class="material-icons-round">account_circle</span>
+            <h3>Users</h3>
+        </a>
+        <a asp-action="" asp-controller="">
+            <span class="material-icons-round">attach_money</span>
+            <h3>Cashback and bonuses</h3>
+        </a>
+        <a asp-action="" asp-controller="">
+            <span class="material-icons-round">message</span>
+            <h3>Chat with support</h3>
+        </a>
+        <a asp-action="" asp-controller="">
+            <span class="material-icons-round">settings</span>
+            <h3>Settings</h3>
+        </a>
+        <a asp-action="Logout" asp-controller="Authentication">
+            <span class="material-icons-round" style="color: red;">logout</span>
+            <h3 style="color: red;">Logout</h3>
+        </a>
+    </div>
+</aside>
+<main>
+    @*INSIGHTS*@
+    <div class="insights">
+        @*Transactions*@
+        <div class="transactions">
+            <span class="material-icons-round">toll</span>
+            <div class="middle">
+                <div class="left">
+                    <h3>Transactions</h3>
+                    <h1>526$</h1>
+                </div>
+                <div class="progress">
+                    <svg>
+                        <circle cx="38" cy="38" r="36"></circle>
+                    </svg>
+                    <div class="number">
+                        <p>81%</p>
+                    </div>
+                </div>
             </div>
-            <div class="close" id="close-btn">
-                <span class="material-icons-round">close</span>
+            <small class="text-muted">Last 1 month</small>
+        </div>
+        @*End of transactions*@
+
+        @*Incoming transfers*@
+        <div class="incoming-transfers">
+            <span class="material-icons-round">south</span>
+            <div class="middle">
+                <div class="left">
+                    <h3>Incoming transfers</h3>
+                    <h1>1453$</h1>
+                </div>
+                <div class="progress">
+                    <svg>
+                        <circle cx="38" cy="38" r="36"></circle>
+                    </svg>
+                    <div class="number">
+                        <p>62%</p>
+                    </div>
+                </div>
+            </div>
+            <small class="text-muted">Last 1 month</small>
+        </div>
+        @*End of incoming transfers*@
+
+        @*just a prototype*@
+        <div class="test">
+            <span class="material-icons-round">south</span>
+            <div class="middle">
+                <div class="left">
+                    <h3>Test</h3>
+                    <h1>1453$</h1>
+                </div>
+                <div class="progress">
+                    <svg>
+                        <circle cx="38" cy="38" r="36"></circle>
+                    </svg>
+                    <div class="number">
+                        <p>44%</p>
+                    </div>
+                </div>
+            </div>
+            <small class="text-muted">Last 1 month</small>
+        </div>
+        @*End of prototype*@
+    </div>
+    @*END OF INSIGHTS*@
+
+    <div class="recent-operations">
+        <h2>Recent operations</h2>
+        <table>
+            <thead>
+            <tr>
+                <th>Operation type</th>
+                <th>Amount</th>
+                <th>Hz</th>
+                <th>Status</th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr>
+                <td>Test 1</td>
+                <td>1</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+            </tr>
+            <tr>
+                <td>Test 2</td>
+                <td>2</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+            </tr>
+            <tr>
+                <td>Test 3</td>
+                <td>3</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+            </tr>
+            <tr>
+                <td>Test 4</td>
+                <td>4</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+            </tr>
+            <tr>
+                <td>Test 5</td>
+                <td>5</td>
+                <td>Due</td>
+                <td class="warning">Pending</td>
+                <td class="primary">Details</td>
+            </tr>
+
+            </tbody>
+        </table>
+        <a href="#">Show all</a>
+    </div>
+</main>
+@*END OF MAIN*@
+
+<div class="right">
+    <div class="top">
+        <button id="menu-btn">
+            <span class="material-icons-round">menu</span>
+        </button>
+        <div class="theme-toggler">
+            <span class="material-icons-round active">light_mode</span>
+            <span class="material-icons-round">brightness_3</span>
+        </div>
+        <div class="profile">
+            <div class="info">
+                <p>Hey, <b>Vladimir</b></p>
+                <small class="text-muted">Admin</small>
+            </div>
+            <div class="profile-photo">
+                <img src=""> @*add user photo here*@
             </div>
         </div>
-        <div class="sidebar">
-            <a class="active" asp-action="" asp-controller="">
-                <span class="material-icons-round">analytics</span>
-                <h3>Analytics</h3>
-            </a>
-            <a asp-action="" asp-controller="">
-                <span class="material-icons-round">account_circle</span>
-                <h3>Users</h3>
-            </a>
-            <a asp-action="" asp-controller="">
-                <span class="material-icons-round">attach_money</span>
-                <h3>Cashback and bonuses</h3>
-            </a>
-            <a asp-action="" asp-controller="">
-                <span class="material-icons-round">message</span>
-                <h3>Chat with support</h3>
-            </a>
-            <a asp-action="" asp-controller="">
-                <span class="material-icons-round">settings</span>
-                <h3>Settings</h3>
-            </a>
-            <a asp-action="Logout" asp-controller="Authentication">
-                <span class="material-icons-round" style="color: red;">logout</span>
-                <h3 style="color: red;">Logout</h3>
-            </a>
+    </div>
+    @*END OF TOP*@
+    <div class="recent-updates">
+        <h2>Recent updates</h2>
+        <div class="updates">
+            <div class="update">
+                <img src=""> @*add user photo here*@
+            </div>
+            <div class="message">
+                <p><b>Example name1</b> sent 300$ to you</p>
+                <small class="text-muted">2 minutes ago</small>
+            </div>
+            <div class="update">
+                <img src=""> @*add user photo here*@
+            </div>
+            <div class="message">
+                <p><b>Example name2</b> sent 300$ to you</p>
+                <small class="text-muted">2 minutes ago</small>
+            </div>
+            <div class="update">
+                <img src=""> @*add user photo here*@
+            </div>
+            <div class="message">
+                <p><b>Example name3</b> sent 300$ to you</p>
+                <small class="text-muted">2 minutes ago</small>
+            </div>
         </div>
-    </aside>
-    <main>
-        @*INSIGHTS*@
-            <div class="insights">
-                @*Transactions*@
-                <div class="transactions">
-                    <span class="material-icons-round">toll</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Transactions</h3>
-                            <h1>526$</h1>
-                        </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>81%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <small class="text-muted">Last 1 month</small>
+        @*END OF RECENT UPDATES*@
+        <div class="sales-analytics">
+            <h2>Sales analytics</h2>
+            <div class="item online">
+                <div class="icon">
+                    <span class="material-icons-round">shopping_cart</span>
                 </div>
-                @*End of transactions*@
-        
-                @*Incoming transfers*@
-                <div class="incoming-transfers">
-                    <span class="material-icons-round">south</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Incoming transfers</h3>
-                            <h1>1453$</h1>
-                        </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>62%</p>
-                            </div>
-                        </div>
+                <div class="right">
+                    <div class="info">
+                        <h3>ONLINE ORDERS</h3>
+                        <small class="text-muted">Last 24 hours</small>
                     </div>
-                    <small class="text-muted">Last 1 month</small>
+                    <h5 class="success">+39%</h5>
+                    <h3>3001</h3>
                 </div>
-                @*End of incoming transfers*@
-        
-                @*just a prototype*@
-                <div class="test">
-                    <span class="material-icons-round">south</span>
-                    <div class="middle">
-                        <div class="left">
-                            <h3>Test</h3>
-                            <h1>1453$</h1>
-                        </div>
-                        <div class="progress">
-                            <svg>
-                                <circle cx="38" cy="38" r="36"></circle>
-                            </svg>
-                            <div class="number">
-                                <p>44%</p>
-                            </div>
-                        </div>
-                    </div>
-                    <small class="text-muted">Last 1 month</small>
-                </div>
-                @*End of prototype*@
             </div>
-        @*END OF INSIGHTS*@
-        
-        <div class="recent-operations">
-                <h2>Recent operations</h2>
-                <table>
-                    <thead>
-                    <tr>
-                        <th>Operation type</th>
-                        <th>Amount</th>
-                        <th>Hz</th>
-                        <th>Status</th>
-                        <th></th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>Test 1</td>
-                        <td>1</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="primary">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Test 2</td>
-                        <td>2</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="primary">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Test 3</td>
-                        <td>3</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="primary">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Test 4</td>
-                        <td>4</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="primary">Details</td>
-                    </tr>
-                    <tr>
-                        <td>Test 5</td>
-                        <td>5</td>
-                        <td>Due</td>
-                        <td class="warning">Pending</td>
-                        <td class="primary">Details</td>
-                    </tr>
-        
-                    </tbody>
-                </table>
-                <a href="#">Show all</a>
+            <div class="item offline">
+                <div class="icon">
+                    <span class="material-icons-round">shopping_cart</span>
+                </div>
+                <div class="right">
+                    <div class="info">
+                        <h3>ONLINE ORDERS</h3>
+                        <small class="text-muted">Last 24 hours</small>
+                    </div>
+                    <h5 class="success">+39%</h5>
+                    <h3>3001</h3>
+                </div>
             </div>
-        </main>
-        @*END OF MAIN*@
+            <div class="item customers">
+                <div class="icon">
+                    <span class="material-icons-round">shopping_cart</span>
+                </div>
+                <div class="right">
+                    <div class="info">
+                        <h3>ONLINE ORDERS</h3>
+                        <small class="text-muted">Last 24 hours</small>
+                    </div>
+                    <h5 class="success">+39%</h5>
+                    <h3>3001</h3>
+                </div>
+            </div>
+            <div class="item add-product">
+                <div>
+                    <span class="material-icons-round">add</span>
+                    <h3>Add Product</h3>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+</div>
+<script src="/js/account.js"></script>
 </body>
